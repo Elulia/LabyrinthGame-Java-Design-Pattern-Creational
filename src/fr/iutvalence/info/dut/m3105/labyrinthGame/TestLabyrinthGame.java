@@ -17,15 +17,30 @@ public class TestLabyrinthGame
 	 */
 	public static void main(String[] args)
 	{
+		
+		LabyrinthBuilder laby = new LabyrinthBuilder();
+
 		Set<Position> blockPositions = new HashSet<Position>();
 		blockPositions.add(new Position(2,0));
 		blockPositions.add(new Position(3,0));
-		blockPositions.add(new Position(0,1));
+		blockPositions.add(new Position(1,0));
 		blockPositions.add(new Position(0,2));
 		blockPositions.add(new Position(1,2));
 		blockPositions.add(new Position(3,2));
 		blockPositions.add(new Position(3,3));
 		
-		new LabyrinthGame(new Labyrinth(4, 4, blockPositions, new Position(3,1)), new LesserDumbBotArtificialIntelligence()).play();
+		laby.addForbiddenCellPos(blockPositions);
+		laby.setHeight(4);
+		laby.setWidth(4);
+		laby.setExitPosition(new Position(3,1));
+	
+		Labyrinth laby2 = laby.getLabyrinth();
+		
+		
+		
+								
+		LabyrinthGame labitinth = new LabyrinthGame(laby2, RobotArtificialIntelligence.createRobot("NotDumb"));
+		labitinth.play();
+
 	}
 }

@@ -15,7 +15,7 @@ public class LabyrinthGame
 
 	private Direction robotDirection;
 
-	private int turnNumber;
+	public int turnNumber;
 
 	public LabyrinthGame(Labyrinth labyrinth, RobotArtificialIntelligence robotAI)
 	{
@@ -36,6 +36,7 @@ public class LabyrinthGame
 
 	private void loopUntilRobotHasReachedExit()
 	{
+		
 		while (true)
 		{
 			if (hasRobotReachedExit())

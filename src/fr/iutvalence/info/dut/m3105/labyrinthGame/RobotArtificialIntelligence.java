@@ -16,4 +16,18 @@ public interface RobotArtificialIntelligence
 	 * callback method used  to notify move result (if robot last action type was MOVE_FORWARD)
 	 */
 	public abstract void notifyMoveResult(boolean hasMoved);
+	
+	public static RobotArtificialIntelligence createRobot(String string){
+		
+		switch (string){
+		case "Dumb":
+			return new DumbBotArtificialIntelligence();
+			
+		case "NotDumb":
+			return new LesserDumbBotArtificialIntelligence();
+		default:
+			return null;
+		
+		}
+	}
 }
